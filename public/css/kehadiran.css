@@ -1,0 +1,195 @@
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#2d3748;
+    --text2:#6b7280;
+    --border:#e5e7eb;
+    --header:#f8fafc;
+    --hover:#f3f4f6;
+    --shadow:0 10px 30px rgba(0,0,0,.06);
+    --primary:#8B4513;
+}
+
+body.dark-mode{
+    --bg:#1f2937;
+    --card:#2b3645;
+    --text:#f3f4f6;
+    --text2:#cbd5e1;
+    --border:#465364;
+    --header:#334155;
+    --hover:#3d4c60;
+    --shadow:none;
+}
+
+.kehadiran-table{
+    --bs-table-bg: var(--card);
+    --bs-table-color: var(--text);
+    --bs-table-border-color: var(--border);
+}
+
+.kehadiran-container{
+    background:var(--bg);
+    padding:25px;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.kehadiran-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.kehadiran-header h2{
+    margin:0;
+    color:var(--text);
+}
+
+.kehadiran-header p{
+    margin-top:5px;
+    color:var(--text2);
+}
+
+.theme-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:var(--primary);
+    color:white;
+    font-size:18px;
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    transform:scale(1.05);
+}
+
+.kehadiran-card{
+    background:var(--card);
+    border-radius:15px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:.3s;
+}
+
+.kehadiran-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.kehadiran-table thead{
+    background:var(--header);
+}
+
+.kehadiran-table th{
+    padding:15px;
+    text-align:left;
+    color:var(--text);
+    border-bottom:1px solid var(--border);
+    font-weight:600;
+}
+
+.kehadiran-table td{
+    padding:15px;
+    border-bottom:1px solid var(--border);
+    color:var(--text);
+}
+
+.kehadiran-table tbody tr{
+    transition:.25s;
+}
+
+.kehadiran-table tbody tr:hover{
+    background:var(--hover);
+}
+
+.empty{
+    text-align:center;
+    padding:30px;
+    color:var(--text2);
+}
+
+/* ===========================
+   Pagination
+=========================== */
+
+.pagination-wrapper{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:20px;
+    padding:0 20px 20px;
+}
+
+.pagination{
+    display:flex;
+    gap:6px;
+    list-style:none;
+}
+
+.pagination .page-item{
+    margin:0;
+}
+
+.pagination .page-link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:38px;
+    height:38px;
+    padding:0 14px;
+    border-radius:10px;
+
+    background:var(--card);
+    color:var(--text);
+    border:1px solid var(--border);
+
+    text-decoration:none;
+    transition:.25s;
+}
+
+.pagination .page-link:hover{
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+.pagination .active .page-link{
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+.pagination .disabled .page-link{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* Dark Mode */
+
+body.dark .pagination .page-link{
+    background:#1e293b;
+    color:#e2e8f0;
+    border-color:#334155;
+}
+
+body.dark .pagination .page-link:hover,
+body.dark .pagination .active .page-link{
+    background:#3b82f6;
+    border-color:#3b82f6;
+}
+
+.kehadiran-table{
+    background: var(--card);
+}
+
+.kehadiran-table tbody tr{
+    background: var(--card);
+}
+
+.kehadiran-table td,
+.kehadiran-table th{
+    background: transparent;
+}

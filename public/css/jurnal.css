@@ -1,0 +1,239 @@
+*{
+    box-sizing:border-box;
+}
+
+/* ===========================
+   PAGE TITLE
+=========================== */
+
+.page-title{
+    margin:20px 0 18px;
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    transition:color .3s ease;
+}
+
+/* Mode Gelap */
+body.dark .page-title{
+    color:#f8fafc;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.jurnal-content{
+    width:100%;
+    padding:10px 0 30px;
+}
+
+.jurnal-card{
+    width:100%;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+.jurnal-body{
+    padding:0;
+    overflow-x:auto;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.jurnal-table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:auto;
+}
+
+/* HEADER */
+
+.jurnal-table thead th{
+    background:#e5e7eb;
+    color:#374151;
+    font-size:14px;
+    font-weight:700;
+    padding:16px;
+    text-align:center;
+    border-bottom:2px solid #d1d5db;
+    white-space:nowrap;
+}
+
+/* BODY */
+
+.jurnal-table tbody td{
+    background:#ffffff;
+    padding:15px 16px;
+    font-size:14px;
+    color:#374151;
+    border-bottom:1px solid #edf0f2;
+}
+
+.jurnal-table tbody tr:hover td{
+    background:#f8fafc;
+}
+
+/* FOOTER */
+
+.jurnal-table tfoot th{
+    background:#374151;
+    color:#fff;
+    padding:16px;
+    font-weight:700;
+}
+
+/* GARIS */
+
+.jurnal-table th,
+.jurnal-table td{
+    border-right:1px solid #edf0f2;
+}
+
+.jurnal-table th:last-child,
+.jurnal-table td:last-child{
+    border-right:none;
+}
+
+/* ALIGN */
+
+.jurnal-table tbody td:nth-child(4),
+.jurnal-table tbody td:nth-child(5),
+.jurnal-table tfoot th:nth-child(2),
+.jurnal-table tfoot th:nth-child(3){
+    text-align:right;
+    white-space:nowrap;
+    font-weight:600;
+}
+
+/* Zebra */
+
+.jurnal-table tbody tr:nth-child(even) td{
+    background:#fcfcfc;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .jurnal-body{
+        overflow-x:auto;
+    }
+
+    .jurnal-table{
+        min-width:850px;
+    }
+
+}
+
+.table-filter{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:18px;
+}
+
+.filter-select{
+    min-width:170px;
+    padding:10px 15px;
+    border:1px solid #dbe2ea;
+    border-radius:10px;
+    background:#fff;
+    font-size:14px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.filter-select:hover{
+    border-color:#0d6efd;
+}
+
+.filter-select:focus{
+    outline:none;
+    border-color:#0d6efd;
+    box-shadow:0 0 0 3px rgba(13,110,253,.15);
+}
+
+.table-filter{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:18px;
+}
+
+.filter-group{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.filter-select{
+    width:170px;
+    height:42px;
+    padding:0 14px;
+    border:1px solid #d7dee7;
+    border-radius:10px;
+    background:#fff;
+    font-size:14px;
+}
+
+.calendar-filter{
+    position:relative;
+}
+
+.calendar-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    background:#0d6efd;
+    color:#fff;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.calendar-btn:hover{
+    background:#0b5ed7;
+}
+
+.calendar-btn i{
+    font-size:18px;
+}
+
+.calendar-input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+    width:1px;
+    height:1px;
+}
+
+.empty-row td{
+    padding:60px 20px;
+}
+
+.empty-message{
+    text-align:center;
+    color:#6c757d;
+}
+
+.empty-message i{
+    font-size:42px;
+    color:#c5ccd4;
+    margin-bottom:12px;
+    display:block;
+}
+
+.empty-title{
+    font-size:17px;
+    font-weight:600;
+    color:#495057;
+    margin-bottom:6px;
+}
+
+.empty-subtitle{
+    font-size:14px;
+    color:#8a94a6;
+}

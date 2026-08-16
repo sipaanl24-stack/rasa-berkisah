@@ -1,0 +1,547 @@
+*{
+    box-sizing:border-box;
+}
+
+/* =====================================================
+                    TRANSACTION LAYOUT
+===================================================== */
+
+.transaction-content{
+    width:100%;
+    max-width:none;
+    padding:20px 30px;
+}
+
+.transaction-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
+
+.transaction-title{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#111827;
+}
+
+.transaction-subtitle{
+    margin-top:4px;
+    color:#6b7280;
+}
+
+/* =====================================================
+                    SUMMARY
+===================================================== */
+
+.transaction-summary{
+    display:flex;
+    gap:16px;
+    margin-bottom:25px;
+}
+
+.transaction-summary-item{
+    flex:1;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+    padding:20px;
+    border-radius:16px;
+}
+
+.transaction-summary-item span{
+    opacity:.9;
+}
+
+.transaction-summary-item h3{
+    margin:8px 0 0;
+    font-size:28px;
+}
+
+/* =====================================================
+                    CARD
+===================================================== */
+
+.transaction-card{
+    background:#fff;
+    border-radius:18px;
+    padding:16px 24px 24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+/* =====================================================
+                    SEARCH
+===================================================== */
+
+.transaction-search{
+    display:flex;
+    align-items:center;
+
+    width:320px;
+    height:46px;
+
+    margin-bottom:20px;
+    padding:0 15px;
+
+    background:#f8fafc;
+    border:1px solid #dbe3ec;
+    border-radius:12px;
+
+    transition:.25s;
+}
+
+.transaction-search:focus-within{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+.transaction-search i{
+    color:#94a3b8;
+    font-size:15px;
+}
+
+.transaction-search input{
+    flex:1;
+    margin-left:10px;
+
+    border:none;
+    outline:none;
+    background:transparent;
+
+    font-size:14px;
+    color:#1f2937;
+}
+
+.transaction-search input::placeholder{
+    color:#94a3b8;
+}
+
+/* =====================================================
+                    TABLE
+===================================================== */
+
+.transaction-table{
+    width:100%;
+    margin-bottom:0;
+}
+
+.transaction-table th,
+.transaction-table td{
+    vertical-align:middle;
+    text-align:left;
+}
+
+.transaction-meja-badge,
+.transaction-table-status,
+.transaction-table .badge {
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    min-height:32px;
+    min-width:110px;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1.2;
+    white-space:nowrap;
+}
+
+.transaction-meja-badge{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.transaction-table-status.status-kosong{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.transaction-table-status.status-terisi{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.transaction-status-cell{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:32px;
+}
+
+.transaction-table .badge {
+    position:static !important;
+    top:auto !important;
+    right:auto !important;
+    width:auto !important;
+    height:auto !important;
+    margin:0;
+    font-size:12px;
+    font-weight:700;
+    border-radius:999px;
+    box-shadow:none !important;
+}
+
+.transaction-table .badge.bg-warning {
+    background:#fef3c7 !important;
+    color:#92400e !important;
+}
+
+.transaction-table .badge.bg-success {
+    background:#dcfce7 !important;
+    color:#166534 !important;
+}
+
+/* =====================================================
+                    BADGE
+===================================================== */
+
+.transaction-total{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    background:#dcfce7;
+    color:#15803d;
+    font-weight:700;
+}
+
+.transaction-status-paid{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:999px;
+    background:#dcfce7;
+    color:#15803d;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* =====================================================
+                    ACTION BUTTON
+===================================================== */
+
+.transaction-action{
+    display:flex;
+    gap:8px;
+}
+
+.transaction-open-btn{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#2563eb;
+    color:#fff;
+    transition:.25s;
+}
+
+.transaction-open-btn:hover{
+    background:#1d4ed8;
+    color:#fff;
+}
+
+.transaction-delete-btn{
+    border:none;
+    padding:8px 14px;
+    border-radius:10px;
+    background:#ef4444;
+    color:#fff;
+    transition:.25s;
+}
+
+.transaction-delete-btn:hover{
+    background:#dc2626;
+}
+
+/* =====================================================
+                    TABS
+===================================================== */
+
+.transaction-tabs{
+    border-bottom:none;
+}
+
+.transaction-tabs .nav-link{
+    border:none;
+    border-radius:10px;
+    margin-right:8px;
+    font-weight:600;
+    transition:.25s;
+}
+
+body.light .transaction-tabs .nav-link{
+    color:#6b7280;
+}
+
+body.light .transaction-tabs .nav-link.active{
+    background:#2563eb;
+    color:#fff;
+}
+
+body:not(.light) .transaction-tabs .nav-link{
+    color:#94a3b8;
+}
+
+body:not(.light) .transaction-tabs .nav-link.active{
+    background:#2563eb;
+    color:#fff;
+}
+
+/* =====================================================
+                    TAB
+===================================================== */
+
+.transaction-tabs .nav-link{
+    color:#6b7280;
+    font-weight:600;
+}
+
+.transaction-tabs .nav-link.active{
+    color:#2563eb;
+}
+
+/* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+@media (max-width:768px){
+
+    .transaction-summary{
+        flex-direction:column;
+    }
+
+    .transaction-action{
+        flex-direction:column;
+    }
+
+}
+
+/* =====================================================
+                    LIGHT MODE
+===================================================== */
+
+body.light .transaction-title{
+    color:#0f172a;
+}
+
+body.light .transaction-subtitle{
+    color:#64748b;
+}
+
+body.light .transaction-card{
+    background:#fff;
+    border:1px solid rgba(156,163,175,.45);
+    box-shadow:0 10px 25px rgba(117,117,117,.08);
+}
+
+body.light .transaction-summary-item{
+    background:#fff;
+    color:#111827;
+    border:1px solid rgba(156,163,175,.45);
+    box-shadow:0 10px 25px rgba(117,117,117,.08);
+}
+
+body.light .transaction-summary-item span{
+    color:#6b7280;
+}
+
+body.light .transaction-table thead th{
+    color:#374151;
+}
+
+body.light .transaction-table thead tr{
+    border-color:#9ca3af;
+}
+
+body.light .transaction-table tbody tr{
+    border-color:#d1d5db;
+}
+
+body.light .transaction-table tbody td{
+    color:#111827;
+}
+
+body.light .transaction-table tbody tr:hover{
+    background:#f9fafb;
+}
+
+body.light .transaction-search{
+    background:#fff;
+    border:1px solid #d1d5db;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+body.light .transaction-search input{
+    color:#111827;
+}
+
+body.light .transaction-search input::placeholder{
+    color:#9ca3af;
+}
+
+body.light .transaction-search i{
+    color:#6b7280;
+}
+
+/* =====================================================
+                    DARK MODE
+===================================================== */
+
+body:not(.light) .transaction-title{
+    color:#f8fafc;
+}
+
+body:not(.light) .transaction-subtitle{
+    color:#94a3b8;
+}
+
+body:not(.light) .transaction-card{
+    background:#181c26;
+    border:1px solid #2f3546;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+body:not(.light) .transaction-summary-item{
+    background:#181c26;
+    color:#f8fafc;
+    border:1px solid #2f3546;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+body:not(.light) .transaction-summary-item span{
+    color:#94a3b8;
+}
+
+body:not(.light) .transaction-table thead th{
+    color:#94a3b8;
+}
+
+body:not(.light) .transaction-table thead tr{
+    border-color:#2b3243;
+}
+
+body:not(.light) .transaction-table tbody tr{
+    border-color:#2b3243;
+}
+
+body:not(.light) .transaction-table tbody td{
+    color:#e5e7eb;
+}
+
+body:not(.light) .transaction-table tbody tr:hover{
+    background:#1f2937;
+}
+
+body:not(.light) .transaction-search{
+    background:#181c26;
+    border:1px solid #323d52;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+body:not(.light) .transaction-search input{
+    color:#f8fafc;
+}
+
+body:not(.light) .transaction-search input::placeholder{
+    color:#6b7280;
+}
+
+body:not(.light) .transaction-search i{
+    color:#94a3b8;
+}
+
+/* =====================================================
+                    DARK TABLE
+===================================================== */
+
+body:not(.light) .transaction-table{
+    --bs-table-bg:#181c26;
+    --bs-table-color:#e5e7eb;
+    --bs-table-border-color:#2b3243;
+    --bs-table-hover-bg:#1f2937;
+    --bs-table-hover-color:#f8fafc;
+}
+
+body:not(.light) .transaction-table thead th{
+    background:#181c26;
+    color:#94a3b8;
+}
+
+body:not(.light) .transaction-table tbody td{
+    background:#181c26;
+    color:#e5e7eb;
+}
+
+body:not(.light) .transaction-table tbody tr:hover td{
+    background:#1f2937;
+}
+
+/* =====================================================
+                    PAGINATION
+===================================================== */
+
+.transaction-pagination{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+}
+
+.page-btn{
+    width:38px;
+    height:38px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+/* LIGHT */
+
+body.light .page-btn{
+    background:#fff;
+    color:#374151;
+    border:1px solid #d1d5db;
+}
+
+body.light .page-btn:hover{
+    background:#f3f4f6;
+}
+
+body.light .page-btn.active{
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+body.light .page-btn.disabled{
+    opacity:.5;
+    pointer-events:none;
+}
+
+/* DARK */
+
+body:not(.light) .page-btn{
+    background:#1b2230;
+    color:#f8fafc;
+    border:1px solid #323d52;
+}
+
+body:not(.light) .page-btn:hover{
+    background:#273449;
+}
+
+body:not(.light) .page-btn.active{
+    background:#2563eb;
+    border-color:#2563eb;
+    color:#fff;
+}
+
+body:not(.light) .page-btn.disabled{
+
+    opacity:.45;
+    pointer-events:none;
+}

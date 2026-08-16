@@ -1,0 +1,218 @@
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+html{
+    font-size:14px;
+}
+
+/* ==================================================
+   BODY
+================================================== */
+
+body{
+    background:#0b1120;
+    color:#e2e8f0;
+    min-height:100vh;
+    transition:.35s;
+    overflow-x:hidden;
+    font-size:14px;
+    line-height:1.4;
+}
+
+/* ==================================================
+   CONTENT
+================================================== */
+
+.content{
+    margin-top:64px;
+    margin-left:250px;
+    width:calc(100% - 250px);
+    min-height:calc(100vh - 64px);
+    padding:20px 18px;
+    transition:.35s;
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(10px);
+    overflow-x:hidden;
+    position:relative;
+    z-index:1;
+}
+
+.content.full{
+    margin-left:80px;
+    width:calc(100% - 80px);
+}
+
+@media (max-width:1200px){
+    .content{
+        margin-left:220px;
+        width:calc(100% - 220px);
+        padding:18px 16px;
+    }
+}
+
+@media (max-width:900px){
+    .content{
+        margin-left:0;
+        width:100%;
+        padding:16px 12px;
+    }
+}
+
+body.light .content{
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.content.full{
+    margin-left:88px;
+    width:calc(100% - 88px);
+}
+
+
+
+
+
+/* ==================================================
+   BUTTON
+================================================== */
+
+.logout-btn{
+    width:100%;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    cursor:pointer;
+
+    background:#dc2626;
+    color:#fff;
+}
+
+/* ==================================================
+   LIGHT THEME
+================================================== */
+
+body.light{
+    background:#f5f7fb;
+}
+
+/* Navbar */
+
+body.light .navbar{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+}
+
+/* Sidebar */
+
+body.light .sidebar{
+    background:#fff;
+    border-right:1px solid #e5e7eb;
+}
+
+/* Logo */
+
+body.light .logo-text h2{
+    color:#111827;
+}
+
+body.light .logo-text span{
+    color:#6b7280;
+}
+
+/* Menu */
+
+body.light .menu-item{
+    color:#4b5563;
+}
+
+body.light .menu-item:hover{
+    background:#f3f4f6;
+    color:#111827;
+}
+
+body.light .menu-item.active{
+    background:#fde68a;
+    color:#111827;
+}
+
+body.light .menu-item.active::before{
+    background:#f59e0b;
+}
+
+/* Navbar Menu */
+
+body.light .navbar-right a{
+    color:#374151;
+}
+
+body.light .navbar-right a:hover{
+    color:#d97706;
+}
+
+body.light .dropbtn{
+    color:#374151;
+}
+
+/* Breadcrumb */
+
+body.light .breadcrumb{
+    color:#6b7280;
+}
+
+body.light .breadcrumb strong{
+    color:#111827;
+}
+
+/* Search */
+
+body.light .search-box{
+    background:#f3f4f6;
+}
+
+body.light .search-box input{
+    color:#111;
+}
+
+body.light .search-box input::placeholder{
+    color:#666;
+}
+
+/* Icon */
+
+body.light .icon-btn{
+    background:#f3f4f6;
+    color:#444;
+}
+
+/* User */
+
+body.light .user-profile:hover{
+    background:#f3f4f6;
+}
+
+body.light .user-info strong{
+    color:#111;
+}
+
+body.light .user-info small{
+    color:#666;
+}
+
+/* Logout */
+
+body.light .logout-btn{
+    background:#f3f4f6;
+}
+
+body.light .logout-btn:hover{
+    background:#ef4444;
+    color:#fff;
+}

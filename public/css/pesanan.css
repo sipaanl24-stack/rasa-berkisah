@@ -1,0 +1,1402 @@
+/* =====================================================
+                    PAGE
+===================================================== */
+
+.pesanan-page{
+    width:100%;
+    padding:12px 22px 24px;
+}
+
+.pesanan-title{
+    margin-bottom:22px;
+    font-size:28px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+/* =====================================================
+                    TAB
+===================================================== */
+
+.pesanan-tabs{
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.pesanan-tabs .nav-item{
+    flex: 1;
+}
+
+.pesanan-tabs .nav-link{
+    width: 100%;
+}
+
+.pesanan-tabs .nav-link:hover{
+    color:#f59e0b;
+}
+
+.pesanan-tabs .nav-link.active{
+    color:#f59e0b;
+    background:none;
+    border:none;
+    border-bottom:3px solid #f59e0b;
+}
+
+
+/* =====================================================
+                KITCHEN DISPLAY
+===================================================== */
+
+.kdsSwiper{
+    width:100%;
+    height:680px;
+    overflow:visible;
+    padding:40px 0 60px;
+}
+
+.kdsSwiper .swiper-wrapper{
+    align-items:center;
+}
+
+.kdsSwiper .swiper-slide{
+    width:620px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:
+        transform .45s ease,
+        opacity .45s ease,
+        filter .45s ease;
+    opacity:.28;
+    filter:blur(2px);
+    transform:scale(.82);
+}
+
+
+/* =====================================================
+            CARD TENGAH
+===================================================== */
+
+.kdsSwiper .swiper-slide-active{
+    opacity:1;
+    filter:none;
+    transform:scale(1);
+    z-index:20;
+}
+
+
+/* =====================================================
+            CARD KIRI
+===================================================== */
+
+.kdsSwiper .swiper-slide-prev{
+    opacity:.45;
+    filter:blur(2px);
+    transform:
+        translateX(90px)
+        scale(.87);
+    z-index:10;
+}
+
+
+/* =====================================================
+            CARD KANAN
+===================================================== */
+
+.kdsSwiper .swiper-slide-next{
+    opacity:.45;
+    filter:blur(2px);
+    transform:
+        translateX(-90px)
+        scale(.87);
+    z-index:10;
+}
+
+
+/* =====================================================
+        CARD LAINNYA
+===================================================== */
+
+.kdsSwiper .swiper-slide:not(.swiper-slide-prev):not(.swiper-slide-active):not(.swiper-slide-next){
+    opacity:0;
+    transform:scale(.70);
+    pointer-events:none;
+}
+
+
+/* =====================================================
+        ANIMASI SELESAI
+===================================================== */
+
+.slide-out{
+    animation:kdsSlide .45s forwards;
+}
+
+@keyframes kdsSlide {
+    from {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-250px) scale(.92);
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+                KITCHEN CARD
+===================================================== */
+
+.kds-card{
+    width:100%;
+    min-height:540px;
+    background:#ffffff;
+    border-radius:26px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    box-shadow: 0 18px 50px rgba(15,23,42,.12);
+    transition:.35s;
+}
+
+.kdsSwiper .swiper-slide-active .kds-card{
+    box-shadow:
+        0 25px 70px rgba(37,99,235,.18);
+}
+
+
+/* =====================================================
+                HEADER
+===================================================== */
+
+.kds-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 26px;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+    color:#fff;
+}
+
+.kds-header h4{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+}
+
+.kds-header span{
+    display:block;
+    margin-top:6px;
+    font-size:13px;
+    opacity:.9;
+}
+
+
+/* =====================================================
+                STATUS
+===================================================== */
+
+.kds-status{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 16px;
+    background:#fff;
+    color:#2563eb;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+                BODY
+===================================================== */
+
+.kds-body{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:28px;
+}
+
+
+/* =====================================================
+                INFO
+===================================================== */
+
+.kds-info{
+    padding:18px;
+    margin-bottom:22px;
+    border-radius:16px;
+    background:#f8fafc;
+}
+
+.kds-info strong{
+    display:block;
+    margin-bottom:6px;
+    color:#111827;
+    font-size:14px;
+}
+
+.kds-info p{
+    margin:0;
+    color:#4b5563;
+    font-size:15px;
+}
+
+
+/* =====================================================
+                MENU
+===================================================== */
+
+.kds-menu{
+    flex:1;
+}
+
+.kds-menu h5{
+    margin-bottom:16px;
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+}
+
+.kds-menu ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.kds-menu li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 18px;
+    margin-bottom:12px;
+    background:#f8fafc;
+    border-radius:14px;
+    transition:.25s;
+}
+
+.kds-menu li:hover{
+    background:#eef4ff;
+}
+
+.menu-name{
+    color:#374151;
+    font-weight:500;
+}
+
+.menu-qty{
+    min-width:42px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-weight:700;
+}
+
+/* =====================================================
+                FORM
+===================================================== */
+
+.kds-form{
+    margin-top:28px;
+}
+
+/* =====================================================
+                BUTTON
+===================================================== */
+
+.kds-finish-btn{
+    width:100%;
+    height:58px;
+    border:none;
+    border-radius:14px;
+    background:#16a34a;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.kds-finish-btn:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(22,163,74,.25);
+}
+
+/* =====================================================
+                EMPTY
+===================================================== */
+
+.kds-empty{
+    width:620px;
+    min-height:500px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#fff;
+    border-radius:26px;
+    box-shadow:0 18px 50px rgba(15,23,42,.12);
+}
+
+.kds-empty i{
+    color:#f59e0b;
+    font-size:54px;
+    margin-bottom:18px;
+}
+
+.kds-empty h4{
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.kds-empty p{
+    color:#6b7280;
+}
+
+/* =====================================================
+                KITCHEN DISPLAY
+                DARK MODE
+===================================================== */
+
+body.dark .kds-card{
+    background:#1f2937;
+    box-shadow: 0 18px 45px rgba(0,0,0,.45);
+}
+
+body.dark .kdsSwiper .swiper-slide-active .kds-card{
+    box-shadow: 0 25px 60px rgba(59,130,246,.20);
+}
+
+
+/* =====================================================
+                HEADER
+===================================================== */
+
+body.dark .kds-header{
+    background:linear-gradient(
+        135deg,
+        #1e40af,
+        #1d4ed8
+    );
+}
+
+body.dark .kds-status{
+    background:#111827;
+    color:#60a5fa;
+}
+
+
+/* =====================================================
+                INFO
+===================================================== */
+
+body.dark .kds-info{
+    background:#111827;
+}
+
+body.dark .kds-info strong{
+    color:#f9fafb;
+}
+
+body.dark .kds-info p{
+    color:#d1d5db;
+}
+
+
+/* =====================================================
+                MENU
+===================================================== */
+
+body.dark .kds-menu h5{
+    color:#f3f4f6;
+}
+
+body.dark .kds-menu li{
+    background:#111827;
+}
+
+body.dark .kds-menu li:hover{
+    background:#253244;
+}
+
+body.dark .menu-name{
+    color:#f3f4f6;
+}
+
+body.dark .menu-qty{
+    background:#2563eb;
+    color:#fff;
+}
+
+
+/* =====================================================
+                BUTTON
+===================================================== */
+
+body.dark .kds-finish-btn{
+    background:#16a34a;
+}
+
+body.dark .kds-finish-btn:hover{
+    background:#15803d;
+}
+
+
+/* =====================================================
+                EMPTY
+===================================================== */
+
+body.dark .kds-empty{
+    background:#1f2937;
+    color:#f9fafb;
+}
+
+body.dark .kds-empty p{
+    color:#d1d5db;
+}
+
+body.dark .kds-empty i{
+    color:#fbbf24;
+}
+
+
+/* =====================================================
+                SCROLLBAR MENU
+===================================================== */
+
+.kds-menu ul{
+    max-height:240px;
+    overflow-y:auto;
+    padding-right:6px;
+}
+
+.kds-menu ul::-webkit-scrollbar{
+    width:7px;
+}
+
+.kds-menu ul::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+.kds-menu ul::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+body.dark .kds-menu ul::-webkit-scrollbar-thumb{
+    background:#475569;
+}
+
+/* =====================================================
+                EFFECT
+===================================================== */
+
+.kds-card{
+    will-change:transform;
+}
+
+.kdsSwiper .swiper-slide{
+    cursor:grab;
+}
+
+.kdsSwiper .swiper-slide:active{
+    cursor:grabbing;
+}
+
+/* =====================================================
+                RESPONSIVE
+===================================================== */
+
+@media (max-width:1200px){
+    .kdsSwiper{
+        height:640px;
+    }
+
+    .kdsSwiper .swiper-slide{
+        width:560px;
+    }
+}
+
+
+/* =====================================================
+                TABLET
+===================================================== */
+
+@media (max-width:992px){
+    .pesanan-page{
+        padding:10px 16px 20px;
+    }
+
+    .kdsSwiper{
+        height:auto;
+        padding:20px 0 40px;
+    }
+
+    .kdsSwiper .swiper-wrapper{
+        align-items:stretch;
+    }
+
+    .kdsSwiper .swiper-slide{
+        width:100%;
+        max-width:680px;
+        opacity:1 !important;
+        filter:none !important;
+        transform:none !important;
+    }
+
+    .kdsSwiper .swiper-slide-prev,
+    .kdsSwiper .swiper-slide-next{
+        display:none;
+    }
+
+    .kds-card{
+        min-height:auto;
+    }
+}
+
+/* =====================================================
+                MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+    .pesanan-title{
+        font-size:24px;
+    }
+
+    .pesanan-tabs{
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        white-space:nowrap;
+    }
+
+    .pesanan-tabs::-webkit-scrollbar{
+        display:none;
+    }
+
+    .kdsSwiper{
+        padding:10px 0 30px;
+    }
+
+    .kdsSwiper .swiper-slide{
+        width:100%;
+    }
+
+    .kds-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+
+    .kds-header h4{
+        font-size:21px;
+    }
+
+    .kds-status{
+        align-self:flex-start;
+    }
+
+    .kds-body{
+        padding:22px;
+    }
+
+    .kds-menu li{
+        padding:12px 14px;
+    }
+}
+
+
+/* =====================================================
+                SMALL MOBILE
+===================================================== */
+
+@media (max-width:576px){
+
+    .pesanan-page{
+        padding:10px;
+    }
+
+    .kds-card{
+        border-radius:18px;
+    }
+
+    .kds-header{
+        padding:18px;
+    }
+
+    .kds-body{
+        padding:18px;
+    }
+
+    .kds-info{
+        padding:14px;
+    }
+
+    .kds-menu h5{
+        font-size:17px;
+    }
+
+    .kds-menu li{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .menu-qty{
+        align-self:flex-end;
+    }
+
+    .kds-finish-btn{
+        height:52px;
+        font-size:15px;
+    }
+}
+
+
+/* =====================================================
+                COVERFLOW ENHANCEMENT
+===================================================== */
+
+.kdsSwiper{
+    perspective:1600px;
+}
+
+.kdsSwiper .swiper-slide-prev{
+    transform:
+        translateX(110px)
+        scale(.84)
+        rotateY(-18deg);
+}
+
+.kdsSwiper .swiper-slide-next{
+    transform:
+        translateX(-110px)
+        scale(.84)
+        rotateY(18deg);
+}
+
+.kdsSwiper .swiper-slide-active{
+    transform: scale(1);
+}
+
+
+/* =====================================================
+                TRANSITION
+===================================================== */
+
+.kdsSwiper .swiper-slide,
+.kds-card{
+    transition:
+        transform .45s ease,
+        opacity .45s ease,
+        filter .45s ease,
+        box-shadow .45s ease;
+}
+
+
+/* =====================================================
+                BUTTON EFFECT
+===================================================== */
+
+.kds-finish-btn:active{
+    transform:scale(.98);
+}
+
+/* =====================================================
+                SWIPER OVERRIDE
+===================================================== */
+
+.swiper{
+    overflow:visible !important;
+}
+
+.swiper-wrapper{
+    align-items:center;
+}
+
+/* =====================================================
+            HISTORY SECTION
+===================================================== */
+
+.pesanan-history-container{
+    width:100%;
+    animation:fadeIn .3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.history-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+    gap:20px;
+}
+
+.history-title{
+    font-size:22px;
+    font-weight:700;
+    color:#1f2937;
+    margin:0;
+}
+
+.history-search{
+    flex:1;
+    max-width:300px;
+    padding:12px 18px;
+    border:1.5px solid #e5e7eb;
+    border-radius:12px;
+    font-size:14px;
+    background:#ffffff;
+    transition:.25s;
+}
+
+.history-search:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+    background:#f8fafc;
+}
+
+.history-search::placeholder{
+    color:#9ca3af;
+}
+
+.history-list{
+    display:grid;
+    gap:16px;
+}
+
+.history-item{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:20px;
+    transition:.3s;
+    animation:slideUp .3s ease;
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.history-item:hover{
+    border-color:#2563eb;
+    box-shadow:0 10px 30px rgba(37,99,235,.12);
+    transform:translateY(-2px);
+}
+
+.history-item-top{
+    display:grid;
+    grid-template-columns:1fr auto auto auto;
+    gap:20px;
+    align-items:center;
+    margin-bottom:18px;
+    padding-bottom:18px;
+    border-bottom:1px solid #f3f4f6;
+}
+
+.history-info{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.history-code{
+    font-size:15px;
+    font-weight:700;
+    color:#111827;
+    font-family:'Courier New', monospace;
+    letter-spacing:.5px;
+}
+
+.history-customer{
+    font-size:14px;
+    color:#6b7280;
+}
+
+.history-meta{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:4px;
+}
+
+.history-time{
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+}
+
+.history-time-detail{
+    font-size:12px;
+    color:#9ca3af;
+}
+
+.history-status{
+    display:flex;
+    align-items:center;
+}
+
+.status-badge{
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    display:inline-block;
+}
+
+.status-badge.completed{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+.history-items{
+    display:grid;
+    gap:10px;
+}
+
+.history-item-detail{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 14px;
+    background:#f8fafc;
+    border-radius:10px;
+    border-left:3px solid #2563eb;
+    transition:.2s;
+}
+
+.history-item-detail:hover{
+    background:#eef4ff;
+    border-left-color:#1d4ed8;
+}
+
+.item-name{
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+    flex:1;
+}
+
+.item-qty{
+    min-width:50px;
+    text-align:right;
+    font-size:13px;
+    font-weight:700;
+    color:#2563eb;
+    background:#dbeafe;
+    padding:4px 10px;
+    border-radius:6px;
+}
+
+.history-empty{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+    text-align:center;
+    background:#f9fafb;
+    border:2px dashed #e5e7eb;
+    border-radius:14px;
+}
+
+.history-empty i{
+    font-size:48px;
+    color:#d1d5db;
+    margin-bottom:16px;
+}
+
+.history-empty p{
+    margin:0;
+    font-size:16px;
+    color:#6b7280;
+}
+
+/* =====================================================
+            HISTORY DARK MODE
+===================================================== */
+
+body.dark .pesanan-history-container{
+    color:#f9fafb;
+}
+
+body.dark .history-title{
+    color:#f3f4f6;
+}
+
+body.dark .history-search{
+    background:#111827;
+    border-color:#374151;
+    color:#f9fafb;
+}
+
+body.dark .history-search:focus{
+    border-color:#3b82f6;
+    background:#1f2937;
+}
+
+body.dark .history-search::placeholder{
+    color:#6b7280;
+}
+
+body.dark .history-item{
+    background:#1f2937;
+    border-color:#374151;
+}
+
+body.dark .history-item:hover{
+    border-color:#3b82f6;
+    box-shadow:0 10px 30px rgba(37,99,235,.15);
+}
+
+body.dark .history-item-top{
+    border-bottom-color:#111827;
+}
+
+body.dark .history-code{
+    color:#f9fafb;
+}
+
+body.dark .history-customer{
+    color:#d1d5db;
+}
+
+body.dark .history-time{
+    color:#e5e7eb;
+}
+
+body.dark .history-time-detail{
+    color:#9ca3af;
+}
+
+body.dark .status-badge.completed{
+    background:#064e3b;
+    color:#a7f3d0;
+}
+
+body.dark .history-item-detail{
+    background:#111827;
+    border-left-color:#3b82f6;
+}
+
+body.dark .history-item-detail:hover{
+    background:#253244;
+}
+
+body.dark .item-name{
+    color:#e5e7eb;
+}
+
+body.dark .item-qty{
+    background:#1e40af;
+    color:#93c5fd;
+}
+
+body.dark .history-empty{
+    background:#111827;
+    border-color:#374151;
+}
+
+body.dark .history-empty i{
+    color:#6b7280;
+}
+
+body.dark .history-empty p{
+    color:#9ca3af;
+}
+
+/* =====================================================
+            HISTORY RESPONSIVE
+===================================================== */
+
+@media (max-width:768px){
+    .history-header{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .history-search{
+        max-width:100%;
+    }
+
+    .history-item-top{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .history-meta,
+    .history-status{
+        text-align:left;
+    }
+
+    .history-item-detail{
+        padding:10px 12px;
+    }
+
+    .item-name{
+        font-size:13px;
+    }
+
+    .item-qty{
+        min-width:45px;
+        padding:3px 8px;
+        font-size:12px;
+    }
+}
+
+@media (max-width:576px){
+    .history-title{
+        font-size:20px;
+    }
+
+    .history-item{
+        padding:16px;
+    }
+
+    .history-code{
+        font-size:13px;
+    }
+
+    .history-customer{
+        font-size:12px;
+    }
+
+    .history-time{
+        font-size:12px;
+    }
+
+    .history-time-detail{
+        font-size:11px;
+    }
+
+    .status-badge{
+        padding:6px 12px;
+        font-size:11px;
+    }
+
+    .history-item-detail{
+        padding:10px;
+        gap:8px;
+    }
+
+    .item-name{
+        font-size:12px;
+    }
+
+    .item-qty{
+        min-width:40px;
+        font-size:11px;
+    }
+
+    .history-empty{
+        padding:40px 16px;
+    }
+
+    .history-empty i{
+        font-size:40px;
+    }
+
+    .history-empty p{
+        font-size:14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+.pesanan-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* ===========================
+   FOCUS BUTTON
+=========================== */
+
+.focus-btn,
+.exit-focus-btn{
+
+    position:fixed;
+
+    top:18px;
+    right:22px;
+
+    width:56px;
+    height:56px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#3B82F6,#06B6D4);
+
+    color:white;
+
+    font-size:24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(59,130,246,.35);
+
+    transition:.35s;
+
+    z-index:999999;
+}
+
+.focus-btn:hover,
+.exit-focus-btn:hover{
+
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 15px 40px rgba(6,182,212,.45);
+
+    background:linear-gradient(135deg,#2563EB,#0891B2);
+
+}
+
+.focus-btn:active,
+.exit-focus-btn:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===========================
+   FOCUS MODE
+=========================== */
+body.focus-mode{
+
+    overflow:hidden;
+
+    background:#09090F;
+
+}
+
+body.focus-mode .sidebar,
+body.focus-mode .navbar,
+body.focus-mode .pesanan-tabs,
+body.focus-mode .pesanan-title{
+
+    display:none!important;
+
+}
+
+body.focus-mode .container-fluid,
+body.focus-mode .pesanan-page{
+
+    width:100vw!important;
+    max-width:none!important;
+
+    height:100vh!important;
+
+    margin:0!important;
+    padding:35px!important;
+
+}
+
+body.focus-mode .tab-content{
+
+    height:100%;
+
+}
+
+body.focus-mode .swiper{
+
+    height:100%;
+
+}
+
+body.focus-mode .swiper-wrapper{
+
+    align-items:center;
+
+}
+
+body.focus-mode .kds-card{
+
+    transform:scale(1.18);
+
+}
+
+body.focus-mode .focus-btn{
+
+    display:none;
+
+}
+
+body.focus-mode .exit-focus-btn{
+
+    display:flex!important;
+
+}
+
+/* ===========================
+   DIGITAL CLOCK
+=========================== */
+
+.focus-clock{
+    position: fixed;
+    top: 24px;
+    left: 24px;
+
+    display: none;
+
+    padding: 12px 22px;
+
+    background: rgba(15,23,42,.85);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+
+    color: #fff;
+
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.35);
+
+    z-index: 999999;
+}
+
+body.focus-mode .focus-clock{
+    display: block;
+}
+
+.clock-time{
+    font-size:30px;
+    font-weight:700;
+}
+
+.clock-date{
+    margin-top:4px;
+    font-size:14px;
+    opacity:.8;
+    letter-spacing:.5px;
+}
+/* =====================================================
+   FOCUS MODE
+===================================================== */
+
+body.focus-mode{
+    overflow:hidden;
+    background:#0f172a;
+}
+
+/* Hilangkan layout utama */
+body.focus-mode .navbar,
+body.focus-mode .sidebar{
+    display:none !important;
+}
+
+/* Hilangkan batas content */
+body.focus-mode #content{
+
+    margin:0 !important;
+    padding:0 !important;
+
+    position:fixed !important;
+
+    inset:0 !important;
+
+    width:100vw !important;
+    height:100vh !important;
+
+    max-width:none !important;
+}
+
+/* Halaman pesanan */
+body.focus-mode .pesanan-page{
+
+    width:100%;
+    height:100%;
+
+    padding:25px;
+
+    background:#0f172a;
+}
+
+/* Tab */
+body.focus-mode .tab-content,
+body.focus-mode #pesanan{
+
+    width:100%;
+    height:100%;
+
+}
+
+/* Swiper */
+body.focus-mode .kdsSwiper,
+body.focus-mode .swiper{
+    width:100%;
+    height:100%;
+}
+
+body.focus-mode .swiper-wrapper{
+    align-items:center;
+}
+
+.kds-table-label{
+    display:inline-block;
+    margin-top:8px;
+    padding:5px 10px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:600;
+    background:#2563eb;
+    color:#fff;
+}

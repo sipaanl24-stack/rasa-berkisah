@@ -1,0 +1,438 @@
+.pos-page{
+    padding:24px;
+}
+
+.pos-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.pos-area-filter{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.pos-area-btn{
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    background:#ececec;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.pos-area-btn.active{
+    background:#2563eb;
+    color:#fff;
+}
+
+.pos-floor-layout{
+    position:relative;
+    width:100%;
+    height:calc(100vh - 240px);
+    min-height:600px;
+    overflow:visible;
+    border-radius:18px;
+
+    background-color:#f4f6f8;
+
+    background-image:
+        linear-gradient(
+            #dfe3e8 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            #dfe3e8 1px,
+            transparent 1px
+        );
+    background-size:30px 30px;
+}
+
+.pos-table-card{
+    position:absolute;
+    width:130px;
+    min-height:90px;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    color:#fff;
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.pos-table-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.pos-shape-kotak{
+    border-radius:12px;
+}
+
+.pos-shape-bulat{
+    border-radius:50%;
+}
+
+.pos-shape-persegi{
+    width:180px;
+    border-radius:12px;
+}
+
+.pos-shape-vip{
+    width:180px;
+    border-radius:16px;
+}
+
+.pos-layout-table{
+    cursor:grab;
+    user-select:none;
+}
+
+.pos-layout-table:active{
+    cursor:grabbing;
+}
+
+.pos-table-card:hover{
+    transform:translateY(-5px);
+}
+
+.pos-editing .pos-table-card{
+    cursor:grab;
+    outline:2px dashed #3b82f6;
+}
+
+.pos-editing .pos-table-card:active{
+    cursor:grabbing;
+}
+
+.pos-status-selesai{
+    background:#10b981;
+}
+
+.pos-status-nonaktif{
+    background:#6b7280;
+}
+
+.pos-table-name{
+    font-size:22px;
+    font-weight:700;
+}
+
+.pos-table-capacity{
+    margin-top:15px;
+}
+
+.pos-table-status{
+    margin-top:18px;
+    font-size:14px;
+}
+
+.pos-status-kosong{
+    background:#22c55e;
+}
+
+.pos-status-terisi{
+    background:#f59e0b;
+}
+
+.pos-table-customer{
+    margin-top:12px;
+    font-size:14px;
+}
+
+.pos-table-total{
+    margin-top:8px;
+    font-size:16px;
+    font-weight:700;
+}
+
+.pos-management-page{
+    padding:24px;
+}
+
+.pos-management-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.pos-management-add-btn{
+    border:none;
+    padding:11px 18px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+}
+
+.pos-management-table-wrapper{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    overflow-x:auto;
+}
+
+.pos-management-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.pos-management-table th,
+.pos-management-table td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+}
+
+.pos-management-actions{
+    display:flex;
+    gap:8px;
+}
+
+.pos-management-actions button{
+    border:none;
+    padding:7px 12px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.pos-management-actions form button{
+    background:#ef4444;
+    color:#fff;
+}
+
+.pos-management-active{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.pos-management-inactive{
+    color:#6b7280;
+    font-weight:600;
+}
+
+.pos-management-empty{
+    text-align:center;
+    padding:30px;
+}
+
+.pos-table-modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.45);
+    z-index:2000;
+}
+
+.pos-table-modal.active{
+    display:flex;
+}
+
+.pos-table-modal-content{
+    width:420px;
+    max-width:calc(100% - 30px);
+    background:#fff;
+    border-radius:16px;
+    padding:24px;
+}
+
+.pos-table-modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.pos-table-modal-header button{
+    border:none;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.pos-table-form-group{
+    margin-bottom:15px;
+}
+
+.pos-table-form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.pos-table-form-group input,
+.pos-table-form-group select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.pos-table-submit-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:9px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+}
+
+.pos-layout-page{
+    padding:24px;
+}
+
+.pos-layout-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.pos-layout-save-btn{
+    border:none;
+    padding:11px 18px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+}
+
+.pos-layout-canvas{
+    position:relative;
+    width:100%;
+    height:calc(100vh - 190px);
+    min-height:600px;
+    overflow:hidden;
+    border-radius:18px;
+    background-color:#f4f6f8;
+    background-image:
+        linear-gradient(
+            #dfe3e8 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            #dfe3e8 1px,
+            transparent 1px
+        );
+    background-size:30px 30px;
+}
+
+.pos-layout-table{
+    position:absolute;
+    width:130px;
+    min-height:90px;
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:grab;
+    user-select:none;
+    background:#fff;
+    border:2px solid #2563eb;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:box-shadow .2s;
+}
+
+.pos-layout-table:active{
+    cursor:grabbing;
+}
+
+.pos-layout-table:hover{
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.pos-shape-square{
+    border-radius:12px;
+}
+
+.pos-shape-round{
+    border-radius:50%;
+}
+
+.pos-shape-rectangle{
+    width:180px;
+    border-radius:12px;
+}
+
+.pos-layout-table-name{
+    font-weight:700;
+    font-size:17px;
+}
+
+.pos-layout-table-area{
+    margin-top:6px;
+    font-size:12px;
+    color:#64748b;
+}
+
+/*=========================
+EDIT MODE
+=========================*/
+
+.pos-layout-action{
+    display:none;
+    position:absolute;
+    top:8px;
+    right:8px;
+    gap:6px;
+}
+
+.pos-editing .pos-layout-action{
+    display:flex;
+}
+
+.pos-edit-btn,
+.pos-delete-btn{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:50%;
+    background:#ffffff;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.pos-editing .pos-table-card{
+    cursor:move;
+    outline:2px dashed #3b82f6;
+}
+
+.pos-table-card{
+    user-select:none;
+    transition:
+        box-shadow .2s,
+        transform .15s;
+}
+
+.pos-table-card {
+    z-index: 10;
+}
+
+.pos-table-card.dragging{
+    z-index:100;
+    transform:scale(1.03);
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+.modal{
+    z-index: 99999 !important;
+}
+
+.modal-backdrop{
+    z-index: 99998 !important;
+}

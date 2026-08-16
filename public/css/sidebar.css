@@ -1,0 +1,280 @@
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#11121b;
+    border-right:1px solid rgba(255,255,255,.08);
+    position:fixed;
+    top:0;
+    left:0;
+
+    display:flex;
+    flex-direction:column;
+
+    transition:.35s;
+
+    overflow:hidden;
+}
+
+.sidebar.hide{
+    width:80px;
+}
+
+/* Scroll hanya menu */
+
+.sidebar-menu{
+    flex:1;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    padding:18px 14px 12px;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* Scrollbar */
+
+.sidebar-menu::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.15);
+    border-radius:20px;
+}
+
+/* ==========================
+LOGO
+========================== */
+
+.sidebar-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:18px 16px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    flex-shrink:0;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    min-width:48px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#f6c453,#a66a00);
+
+    color:#fff;
+    font-size:24px;
+}
+
+.logo-text h2{
+    color:#fff;
+    font-size:22px;
+    margin:0;
+}
+
+.logo-text span{
+    color:#9ca3af;
+    font-size:13px;
+}
+
+.sidebar.hide .sidebar-logo{
+    justify-content:center;
+}
+
+.sidebar.hide .logo-text{
+    display:none;
+}
+
+/* ==========================
+MENU
+========================== */
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px 14px;
+
+    border-radius:16px;
+
+    color:#9ca3af;
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.menu-item i{
+    width:22px;
+}
+
+.menu-item:hover{
+    background:#1b1b1b;
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.menu-item:hover i{
+    color:#f6c453;
+}
+
+.menu-item.active{
+    background:#2b2415;
+    color:#f6c453;
+}
+
+.menu-item.active i{
+    color:#f6c453;
+}
+
+.sidebar.hide .menu-item{
+    justify-content:center;
+    padding:15px;
+}
+
+.sidebar.hide .menu-item span{
+    display:none;
+}
+
+.sidebar.hide .menu-item i{
+    width:auto;
+    font-size:20px;
+}
+
+/* ==========================
+DROPDOWN
+========================== */
+
+.menu-dropdown{
+    width:100%;
+}
+
+.dropdown-toggle{
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.arrow{
+    transition:.3s;
+    font-size:12px;
+}
+
+.menu-dropdown.open .arrow{
+    transform:rotate(180deg);
+}
+
+.submenu{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+}
+
+.menu-dropdown.open .submenu{
+    max-height:180px;
+}
+
+.submenu-item{
+    display:block;
+    padding:10px 18px 10px 56px;
+
+    text-decoration:none;
+
+    color:#9ca3af;
+
+    transition:.25s;
+}
+
+.submenu-item:hover{
+    color:#fff;
+    background:#1b1b1b;
+}
+
+.submenu-item.active{
+    color:#f6c453;
+    font-weight:600;
+}
+
+.sidebar.hide .submenu{
+    display:none;
+}
+
+.sidebar.hide .arrow{
+    display:none;
+}
+
+.sidebar.hide .menu-left{
+    justify-content:center;
+    width:100%;
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+.sidebar-footer{
+    flex-shrink:0;
+    padding:14px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.logout-btn{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    padding:14px;
+
+    border:none;
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:#1b1b1b;
+    color:#ef4444;
+
+    transition:.25s;
+}
+
+.logout-btn:hover{
+    background:#2b1b1b;
+    color:#fff;
+}
+
+.logout-btn:hover{
+    background:#ef4444;
+    color:#fff;
+}
+
+.sidebar.hide .logout-btn{
+    width:50px;
+    height:50px;
+    padding:0;
+    margin:auto;
+}
+
+.sidebar.hide .logout-btn span{
+    display:none;
+}
