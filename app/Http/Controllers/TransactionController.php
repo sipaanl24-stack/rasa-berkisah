@@ -7,6 +7,7 @@ use App\Models\Jurnal;
 use App\Models\MenuMakanan;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TransactionController extends Controller
 {
@@ -118,13 +119,20 @@ public function index(Request $request, $id = null)
 
 public function simpan(Request $request)
 {
-    // Validasi dasar
+    // =========================================================
+    // VALIDASI DASAR
+    // =========================================================
+
     $request->validate([
         'status' => 'required|in:pending,paid',
         'nama_pelanggan' => 'nullable|string|max:255',
     ]);
 
-    // Jika status PAID, nominal bayar wajib diisi
+
+    // =========================================================
+    // VALIDASI PEMBAYARAN
+    // =========================================================
+
     if ($request->status === 'paid') {
 
         $request->validate([
@@ -134,20 +142,43 @@ public function simpan(Request $request)
         ]);
     }
 
-    // Pastikan ada menu yang dipilih
+
+    // =========================================================
+    // CEK MENU
+    // =========================================================
+
     if (!$request->has('menu_id') || empty($request->menu_id)) {
-        return back()->with('error', 'Belum ada menu yang dipilih.');
+
+        return back()
+            ->withInput()
+            ->with('error', 'Belum ada menu yang dipilih.');
     }
 
-    // Hitung total transaksi
+
+    // =========================================================
+    // HITUNG TOTAL TRANSAKSI
+    // =========================================================
+
     $total = 0;
 
     foreach ($request->menu_id as $key => $menuId) {
-        $total += $request->harga[$key] * $request->qty[$key];
+
+        $harga = (float) $request->harga[$key];
+        $qty = (int) $request->qty[$key];
+
+        $total += $harga * $qty;
     }
 
-    // Jika pembayaran kurang dari total
-    if ($request->status === 'paid' && $request->bayar < $total) {
+
+    // =========================================================
+    // CEK NOMINAL PEMBAYARAN
+    // =========================================================
+
+    if (
+        $request->status === 'paid' &&
+        (float) $request->bayar < $total
+    ) {
+
         return back()
             ->withInput()
             ->withErrors([
@@ -155,19 +186,33 @@ public function simpan(Request $request)
             ]);
     }
 
-    // Hitung kembalian
+
+    // =========================================================
+    // HITUNG BAYAR & KEMBALIAN
+    // =========================================================
+
     $bayar = $request->status === 'paid'
-        ? $request->bayar
+        ? (float) $request->bayar
         : 0;
 
     $kembalian = $request->status === 'paid'
-        ? ($bayar - $total)
+        ? $bayar - $total
         : 0;
 
-    // UPDATE TRANSAKSI YANG SUDAH ADA
+
+    // =========================================================
+    // UPDATE / BUAT TRANSAKSI
+    // =========================================================
+
     if ($request->transaksi_id) {
 
-        $transaksi = Transaksi::findOrFail($request->transaksi_id);
+        // -----------------------------------------------------
+        // UPDATE TRANSAKSI LAMA
+        // -----------------------------------------------------
+
+        $transaksi = Transaksi::findOrFail(
+            $request->transaksi_id
+        );
 
         $transaksi->update([
             'meja_id' => $request->meja_id,
@@ -176,11 +221,14 @@ public function simpan(Request $request)
             'bayar' => $bayar,
             'kembalian' => $kembalian,
             'status' => $request->status,
+
             'waktu_bayar' => $request->status === 'paid'
                 ? ($transaksi->waktu_bayar ?? now())
                 : null,
         ]);
 
+
+        // Hapus detail transaksi lama
         DetailTransaksi::where(
             'transaksi_id',
             $transaksi->id
@@ -188,7 +236,10 @@ public function simpan(Request $request)
 
     } else {
 
+        // -----------------------------------------------------
         // BUAT TRANSAKSI BARU
+        // -----------------------------------------------------
+
         $transaksi = Transaksi::create([
             'kode_transaksi' => 'TRX' . time(),
             'meja_id' => $request->meja_id,
@@ -197,32 +248,49 @@ public function simpan(Request $request)
             'bayar' => $bayar,
             'kembalian' => $kembalian,
             'status' => $request->status,
+
             'waktu_bayar' => $request->status === 'paid'
                 ? now()
                 : null,
         ]);
     }
 
-    // Simpan detail transaksi
+
+    // =========================================================
+    // SIMPAN DETAIL TRANSAKSI
+    // =========================================================
+
     foreach ($request->menu_id as $key => $menuId) {
+
+        $harga = (float) $request->harga[$key];
+        $qty = (int) $request->qty[$key];
 
         DetailTransaksi::create([
             'transaksi_id' => $transaksi->id,
             'menu_id' => $menuId,
-            'harga' => $request->harga[$key],
-            'qty' => $request->qty[$key],
-            'subtotal' =>
-                $request->harga[$key] * $request->qty[$key],
+            'harga' => $harga,
+            'qty' => $qty,
+            'subtotal' => $harga * $qty,
         ]);
     }
 
-    // Buat jurnal jika transaksi sudah dibayar
+
+    // =========================================================
+    // BUAT JURNAL JIKA SUDAH DIBAYAR
+    // =========================================================
+
     if ($request->status === 'paid') {
 
+        // Hapus jurnal lama jika transaksi sebelumnya pernah dibuat
         Jurnal::where(
             'transaksi_id',
             $transaksi->id
         )->delete();
+
+
+        // -----------------------------------------------------
+        // DEBIT KAS
+        // -----------------------------------------------------
 
         Jurnal::create([
             'transaksi_id' => $transaksi->id,
@@ -233,6 +301,11 @@ public function simpan(Request $request)
             'debit' => $total,
             'kredit' => 0,
         ]);
+
+
+        // -----------------------------------------------------
+        // KREDIT PENJUALAN
+        // -----------------------------------------------------
 
         Jurnal::create([
             'transaksi_id' => $transaksi->id,
@@ -245,16 +318,33 @@ public function simpan(Request $request)
         ]);
     }
 
+
+    // =========================================================
+    // SELESAI - TRANSAKSI PAID
+    // =========================================================
+
+    if ($request->status === 'paid') {
+
+        return redirect()
+            ->route('transaction.index')
+            ->with([
+                'success' => 'Transaksi Berhasil',
+                'print_id' => $transaksi->id,
+            ]);
+    }
+
+
+    // =========================================================
+    // SELESAI - TRANSAKSI PENDING
+    // =========================================================
+
     return redirect()
         ->route('transaction.index')
         ->with(
             'success',
-            $request->status === 'paid'
-                ? 'Transaksi Berhasil'
-                : 'Pesanan berhasil disimpan.'
+            'Pesanan berhasil disimpan.'
         );
 }
-
 
     public function onhold()
     {
@@ -290,6 +380,25 @@ public function simpan(Request $request)
         return back()->with(
             'success',
             'Transaksi berhasil dihapus.'
+        );
+    }
+
+    public function print($id)
+    {
+        $transaksi = Transaksi::with([
+            'detail.menu',
+            'meja'
+        ])->findOrFail($id);
+
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView(
+            'transaction.thermal',
+            compact('transaksi')
+        );
+
+        $pdf->setPaper([0, 0, 226.77, 600]);
+
+        return $pdf->stream(
+            'struk-' . $transaksi->kode_transaksi . '.pdf'
         );
     }
 }

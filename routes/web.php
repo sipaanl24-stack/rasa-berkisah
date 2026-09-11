@@ -162,23 +162,28 @@ Route::middleware('cekrole:admin')->group(function () {
 Route::middleware('cekrole:kasir')->group(function () {
 
     // TRANSAKSI
-    Route::prefix('transaction')->group(function () {
-        Route::get('/', [TransactionController::class, 'index'])
-            ->name('transaction.index');
+Route::prefix('transaction')->group(function () {
 
-        Route::post('/simpan', [TransactionController::class, 'simpan'])
-            ->name('transaction.store');
+    Route::get('/', [TransactionController::class, 'index'])
+        ->name('transaction.index');
 
-        Route::get('/onhold', [TransactionController::class, 'onhold'])
-            ->name('transaction.onhold');
+    Route::post('/simpan', [TransactionController::class, 'simpan'])
+        ->name('transaction.store');
 
-        Route::delete('/onhold/{id}', [TransactionController::class, 'destroyOnhold'])
-            ->name('transaction.destroy');
+    Route::get('/onhold', [TransactionController::class, 'onhold'])
+        ->name('transaction.onhold');
 
-        // Selalu paling bawah
-        Route::get('/{id}', [TransactionController::class, 'index'])
-            ->name('transaction.edit');
-    });
+    Route::delete('/onhold/{id}', [TransactionController::class, 'destroyOnhold'])
+        ->name('transaction.destroy');
+
+    Route::get('/print/{id}', [TransactionController::class, 'print'])
+        ->name('transaction.print');
+
+    Route::get('/{id}', [TransactionController::class, 'index'])
+        ->name('transaction.edit');
+});
+
+    
 
     // MEJA
     Route::prefix('pos')->group(function () {
