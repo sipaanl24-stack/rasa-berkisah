@@ -5,8 +5,8 @@
 <div class="inventory-content">
     <div class="top-bar">
         <div class="title">
-            <h1>Permintaan Barang</h1>
-            <p>Daftar permintaan barang dari kitchen.</p>
+            <h1>Pengajuan Bahan</h1>
+            <p>Daftar Persutujuan Pengajuan Bahan</p>
         </div>
     </div>
     <div class="filter-bar">

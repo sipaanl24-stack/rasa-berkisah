@@ -21,7 +21,15 @@ class PosController extends Controller
             ->orderBy('nama_meja')
             ->get();
 
-        return view('pos.index', compact('meja'));
+        $jumlahDitangguhkan = \App\Models\Transaksi::whereIn('status', [
+            'pending',
+            'selesai'
+        ])->count();
+
+        return view('pos.index', compact(
+            'meja',
+            'jumlahDitangguhkan'
+        ));
     }
 
     public function manage()

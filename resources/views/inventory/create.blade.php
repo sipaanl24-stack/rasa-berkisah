@@ -55,10 +55,10 @@
                     <input type="date" name="masuk" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Tanggal Expired</label>
                     <input type="date" name="expired" required>
-                </div>
+                </div> -->
             </div>
 
             <button type="submit" class="btn submit-btn">

@@ -11,7 +11,7 @@
             <th>Waktu Pesan</th>
             <th>Total</th>
             <th>Status Pesanan</th>
-            <th>Status Meja</th>
+            <!-- <th>Status Meja</th> -->
             <th width="180">Aksi</th>
         </tr>
     </thead>
@@ -38,14 +38,14 @@
                         @endif
                     </div>
                 </td>
-                <td>
+                <!-- <td>
                     @php
                         $statusMeja = $trx->meja?->status ?? 'kosong';
                     @endphp
                     <span class="transaction-table-status {{ $statusMeja === 'kosong' ? 'status-kosong' : 'status-terisi' }}">
                         {{ $statusMeja === 'kosong' ? 'Kosong' : 'Terisi' }}
                     </span>
-                </td>
+                </td> -->
                 <td>
                     <div class="transaction-action">
                         <a href="{{ url('/transaction/'.$trx->id) }}" class="transaction-open-btn"> Buka </a>

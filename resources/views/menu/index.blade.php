@@ -4,7 +4,7 @@
 <div class="container">
     <div class="topbar">
         <div class="title">
-            <h2>Daftar Menu</h2>
+            <h2>Resep Dan Harga Jual Menu</h2>
         </div>
         <button class="btn btn-primary" onclick="openTambah()"> + Tambah Menu </button>
     </div>

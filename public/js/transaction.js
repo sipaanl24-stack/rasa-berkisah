@@ -1,4 +1,5 @@
 const transaksi = window.transactionData.detail || [];
+const oldTransaksi = window.transactionData.oldDetail || [];
 function tambahMenu(id, nama, harga)
 {
     const empty = document.querySelector('.empty-cart');
@@ -86,12 +87,14 @@ document
     .getElementById('bayar')
     .addEventListener('input', hitungTotal);
 window.addEventListener('load', function () {
-    if (!transaksi.length)
+    const detail = oldTransaksi.length ? oldTransaksi : transaksi;
+
+    if (!detail.length)
     {
         return;
     }
 
-    transaksi.forEach(function (item) {
+    detail.forEach(function (item) {
         if (!item.menu)
         {
             return;

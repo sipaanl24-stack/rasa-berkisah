@@ -6,7 +6,7 @@
     @include('inventory.create')
     @include('inventory.edit')
         <div class="title">
-            <h1>Data Barang Masuk</h1>
+            <h1>Data Persediaan Bahan Masuk</h1>
                 <div class="table-info">
                     <strong>{{ $data->total() }}</strong>
                     Total Bahan
@@ -29,7 +29,6 @@
         </select>
 
         <input type="text" id="dateRange" name="date_range" value="{{ request('date_range') }}" class="calendar-input">
-
         <button type="button" id="calendarBtn" class="calendar-btn">
             <i class="fas fa-calendar-alt"></i>
         </button>
@@ -39,10 +38,8 @@
         <input type="hidden" name="direction" value="{{ $direction }}">
 
     </form>
-
     <button class="btn" onclick="openModal()"> + Tambah Barang  </button>
 </div>
-
 @include('inventory.table')
 </div>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

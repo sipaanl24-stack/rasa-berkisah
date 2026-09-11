@@ -24,7 +24,7 @@
                         <span class="status-pending"> Menunggu </span>
                     </td>
                     <td>
-                        <div class="ket-box ket-pending"> Menunggu respon supplier </div>
+                        <div class="ket-box ket-pending"> Menunggu respon Admin </div>
                     </td>
                 </tr>
                 <tr id="detail{{ $first->kode_request }}"  class="detail-row" style="display:none;">

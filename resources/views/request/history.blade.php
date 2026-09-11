@@ -31,7 +31,7 @@
                     <td>
                         @if($first->status == 'diterima')
                             <div class="ket-box ket-diterima">
-                                {{ $first->keterangan_penolakan ?: 'Request diterima supplier.' }}
+                                {{ $first->keterangan_penolakan ?: 'Request diterima Admin.' }}
                             </div>
                         @else
                             <div class="ket-box ket-ditolak">

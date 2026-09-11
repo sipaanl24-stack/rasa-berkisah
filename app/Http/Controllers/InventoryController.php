@@ -131,14 +131,33 @@ class InventoryController extends Controller
     ));
 }
 
-    public function store(Request $request)
-    {
-        $barangTerakhir = Inventory::latest()->first();
+public function store(Request $request)
+{
+    // Cek apakah barang dengan nama dan satuan yang sama sudah ada
+    $barang = Inventory::where('nama_bahan', $request->nama_bahan)
+                       ->where('satuan', $request->satuan)
+                       ->first();
+
+    if ($barang) {
+
+        // Jika barang sudah ada, tambahkan stok
+        $barang->stock += $request->stock;
+
+        // Update informasi terbaru
+        $barang->harga = $request->harga;
+        $barang->masuk = $request->masuk;
+        $barang->expired = $request->expired;
+
+        $barang->save();
+
+    } else {
+
+        // Jika barang belum ada, buat kode barang baru
+        $barangTerakhir = Inventory::orderBy('barang_id', 'desc')->first();
 
         if ($barangTerakhir) {
 
-            $angka = substr($barangTerakhir->kode, 3);
-
+            $angka = (int) substr($barangTerakhir->kode, 3);
             $kodeBaru = 'BRG' . str_pad($angka + 1, 3, '0', STR_PAD_LEFT);
 
         } else {
@@ -148,18 +167,19 @@ class InventoryController extends Controller
         }
 
         Inventory::create([
-            'kode'        => $kodeBaru,
-            'nama_bahan'  => $request->nama_bahan,
-            'kategori'    => $request->kategori,
-            'stock'       => $request->stock,
+            'kode'       => $kodeBaru,
+            'nama_bahan' => $request->nama_bahan,
+            'kategori'   => $request->kategori,
+            'stock'      => $request->stock,
             'satuan'      => $request->satuan,
-            'harga'       => $request->harga,
-            'masuk'       => $request->masuk,
-            'expired'     => $request->expired,
+            'harga'      => $request->harga,
+            'masuk'      => $request->masuk,
+            'expired'    => $request->expired,
         ]);
-
-        return redirect('/inventory');
     }
+
+    return redirect('/inventory');
+}
 
     public function edit($barang_id)
     {
@@ -188,7 +208,6 @@ class InventoryController extends Controller
     public function destroy($barang_id)
     {
         Inventory::destroy($barang_id);
-
         return redirect('/inventory');
     }
 }

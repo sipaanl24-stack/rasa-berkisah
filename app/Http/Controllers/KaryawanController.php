@@ -28,6 +28,7 @@ class KaryawanController extends Controller
             'kode_karyawan' => $kode,
             'nama_karyawan' => $request->nama_karyawan,
             'email'          => $request->email,
+            'password'       => $request->password,
             'role'           => $request->role,
             'status'         => $request->status,
             'kontak'         => $request->kontak,
@@ -48,6 +49,12 @@ class KaryawanController extends Controller
             'status'         => $request->status,
             'kontak'         => $request->kontak,
         ]);
+
+        if ($request->filled('password')) {
+            $karyawan->update([
+                'password' => $request->password
+            ]);
+        }
 
         return redirect()->back();
     }

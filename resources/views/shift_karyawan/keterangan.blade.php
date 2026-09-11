@@ -31,27 +31,11 @@
                         <div class="shift-karyawan-legend-title">
                             Shift Siang
                         </div>
-                        <small>15:00 - 23:00</small>
+                        <small>15:00 - 22:00</small>
                     </div>
                 </div>
                 <span class="badge bg-secondary shift-karyawan-shift-badge">
                     2
-                </span>
-            </div>
-
-            <!-- Shift Malam -->
-            <div class="shift-karyawan-legend-item shift-karyawan-malam">
-                <div class="shift-karyawan-legend-left">
-                    <span class="shift-karyawan-legend-color"></span>
-                    <div>
-                        <div class="shift-karyawan-legend-title">
-                            Shift Malam
-                        </div>
-                        <small>23:00 - 07:00</small>
-                    </div>
-                </div>
-                <span class="badge bg-primary shift-karyawan-shift-badge">
-                    3
                 </span>
             </div>
 

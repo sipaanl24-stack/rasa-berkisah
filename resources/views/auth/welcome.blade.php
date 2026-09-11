@@ -10,25 +10,16 @@
 
 <body>
 
-    <div class="space">
-        <div class="center-glow"></div>
-    </div>
+    <div class="space"> <div class="center-glow"></div> </div>
 
     <div class="content">
-        <div class="title">
-            Selamat Datang
-        </div>
-
-        <div class="subtitle">
-            Rasa Berkisah & Coffee Point
-        </div>
+        <div class="title"> Selamat Datang </div> 
+        <div class="subtitle"> Rasa Berkisah & Coffee Point </div>
     </div>
 
     <script>
         window.dashboardUrl = "{{ url('/dashboard') }}";
     </script>
-
     <script src="{{ asset('js/welcome.js') }}"></script>
-
 </body>
 </html>

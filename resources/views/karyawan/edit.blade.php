@@ -24,6 +24,11 @@
                 </div>
 
                 <div>
+                    <label>Password Baru</label>
+                    <input type="password" name="password" placeholder="Kosongkan jika tidak ingin mengubah">
+                </div>
+
+                <div>
                     <label>Role</label>
                     <select name="role" id="edit_role">
                         <option value="admin">Admin</option>

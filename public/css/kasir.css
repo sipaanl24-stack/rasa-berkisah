@@ -1,0 +1,183 @@
+/* =====================================================
+   KASIR WORKSPACE
+===================================================== */
+
+.kasir-workspace {
+    width: 100%;
+    padding: 20px 30px;
+}
+
+.kasir-workspace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.kasir-page-heading h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.kasir-page-heading p {
+    margin: 5px 0 0;
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.kasir-navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    background: #f1f5f9;
+    border-radius: 14px;
+}
+
+.kasir-nav-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.kasir-nav-item:hover {
+    color: #2563eb;
+    background: #e8eefc;
+}
+
+.kasir-nav-item.active {
+    color: #fff;
+    background: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, .2);
+}
+
+.kasir-nav-item i {
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.kasir-nav-badge {
+    min-width: 21px;
+    height: 21px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 6px;
+
+    border-radius: 999px;
+
+    background: #ef4444;
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.kasir-nav-item.active .kasir-nav-badge {
+    background: #fff;
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body:not(.light) .kasir-page-heading h2 {
+    color: #f8fafc;
+}
+
+body:not(.light) .kasir-page-heading p {
+    color: #94a3b8;
+}
+
+body:not(.light) .kasir-navigation {
+    background: #181c26;
+    border: 1px solid #2f3546;
+}
+
+body:not(.light) .kasir-nav-item {
+    color: #94a3b8;
+}
+
+body:not(.light) .kasir-nav-item:hover {
+    color: #60a5fa;
+    background: #202738;
+}
+
+body:not(.light) .kasir-nav-item.active {
+    color: #fff;
+    background: #2563eb;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .kasir-workspace-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .kasir-navigation {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .kasir-nav-item {
+        flex: 1;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .kasir-workspace {
+        padding: 15px;
+    }
+
+    .kasir-page-heading h2 {
+        font-size: 24px;
+    }
+
+    .kasir-nav-item {
+        padding: 10px 12px;
+    }
+
+    .kasir-nav-item span:not(.kasir-nav-badge) {
+        display: none;
+    }
+
+}

@@ -17,13 +17,8 @@
             </p>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">
-                    Cancel
-                </button>
-
-                <button type="submit" class="btn btn-danger">
-                    Hapus
-                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">  Cancel </button>
+                <button type="submit" class="btn btn-danger"> Hapus </button>
             </div>
 
         </form>

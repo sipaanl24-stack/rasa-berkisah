@@ -193,3 +193,274 @@ body.dark .pagination .active .page-link{
 .kehadiran-table th{
     background: transparent;
 }
+
+/* ========================================
+   FILTER KEHADIRAN
+======================================== */
+
+.kehadiran-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   DROPDOWN FILTER
+======================================== */
+
+.filter-dropdown {
+    position: relative;
+}
+
+.filter-dropdown-btn {
+    height: 40px;
+    min-width: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #444;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.filter-dropdown-btn:hover {
+    border-color: #2563eb;
+}
+
+.filter-dropdown-btn i {
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.filter-dropdown.open .filter-dropdown-btn i {
+    transform: rotate(180deg);
+}
+
+
+/* ========================================
+   DROPDOWN MENU
+======================================== */
+
+.filter-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+
+    width: 160px;
+
+    padding: 6px;
+
+    background: #fff;
+    border: 1px solid #e2e6ed;
+    border-radius: 8px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    display: none;
+
+    z-index: 100;
+}
+
+.filter-dropdown.open .filter-dropdown-menu {
+    display: block;
+}
+
+.filter-dropdown-menu a {
+    display: block;
+
+    padding: 9px 11px;
+
+    border-radius: 6px;
+
+    color: #444;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.filter-dropdown-menu a:hover {
+    background: #f3f6fb;
+    color: #2563eb;
+}
+
+.filter-dropdown-menu a.active {
+    background: #eef4ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+
+
+/* ========================================
+   CALENDAR BUTTON
+======================================== */
+
+.calendar-btn {
+    width: auto;
+    min-width: 135px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #555;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.calendar-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #f5f8ff;
+}
+
+.calendar-btn i {
+    font-size: 15px;
+}
+
+
+/* ========================================
+   NAVIGASI TAB KEHADIRAN
+======================================== */
+
+.kehadiran-tabs {
+    width: 100%;
+    display: flex;
+
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ========================================
+   TAB
+======================================== */
+
+.kehadiran-tab {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 55px;
+
+    padding: 0 20px;
+
+    color: #888;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* ========================================
+   HOVER
+======================================== */
+
+.kehadiran-tab:hover {
+    color: #1769ff;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   TAB AKTIF
+======================================== */
+
+.kehadiran-tab.active {
+    color: #1769ff;
+}
+
+
+/* ========================================
+   GARIS BIRU TAB AKTIF
+======================================== */
+
+.kehadiran-tab.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 3px;
+
+    background-color: #1769ff;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .kehadiran-tabs {
+        margin-top: 25px;
+    }
+
+    .kehadiran-tab {
+        height: 50px;
+
+        padding: 0 10px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE KECIL
+======================================== */
+
+@media (max-width: 480px) {
+
+    .kehadiran-tab {
+        font-size: 13px;
+    }
+
+}

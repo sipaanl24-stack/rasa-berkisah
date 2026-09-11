@@ -19,6 +19,11 @@
                 </div>
 
                 <div>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div>
                     <label>Role</label>
                     <select name="role" required>
                         <option value="">Pilih Role</option>

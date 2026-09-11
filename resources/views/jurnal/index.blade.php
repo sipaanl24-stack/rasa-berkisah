@@ -18,13 +18,7 @@
             <option value="year" {{ $filter=='year' ? 'selected' : '' }}>Tahun Ini</option>
         </select>
 
-        <input
-            type="text"
-            id="dateRange"
-            name="date_range"
-            value="{{ request('date_range') }}"
-            class="calendar-input">
-
+        <input type="text" id="dateRange" name="date_range" value="{{ request('date_range') }}" class="calendar-input">
         <button type="button" id="calendarBtn" class="calendar-btn">
             <i class="fas fa-calendar-alt"></i>
         </button>

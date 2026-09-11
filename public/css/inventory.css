@@ -529,3 +529,55 @@ body:not(.light) .inventory-content .search-box i{
     margin-top: 8px;
 }
 
+/* ========================================
+   ACTION BUTTON - HAPUS
+======================================== */
+
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 70px;
+    height: 36px;
+    padding: 0 14px;
+
+    border: 1px solid #dc3545;
+    border-radius: 7px;
+
+    background: #fff;
+    color: #dc3545;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.btn-delete:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+/* Saat ditekan */
+.btn-delete:active {
+    transform: scale(0.97);
+}
+
+.action-column {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.action-buttons form {
+    margin: 0;
+}

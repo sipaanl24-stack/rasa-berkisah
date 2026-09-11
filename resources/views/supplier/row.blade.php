@@ -22,16 +22,7 @@
     </td>
     <td>
         @if($first->status == 'pending')
-            <button type="button" class="update-btn"
-                data-id="{{ $first->id }}"
-                data-kode="{{ $kode }}"
-                data-nama="{{ $items->pluck('nama_bahan')->implode('|') }}"
-                data-kategori="{{ $items->pluck('kategori')->implode('|') }}"
-                data-stock="{{ $items->pluck('sisa_stock')->implode('|') }}"
-                data-satuan="{{ $items->pluck('satuan')->implode('|') }}"
-                data-keterangan="{{ $first->keterangan }}">
-                Update
-            </button>
+            <button type="button" class="update-btn" data-id="{{ $first->id }}" data-kode="{{ $kode }}" data-nama="{{ $items->pluck('nama_bahan')->implode('|') }}" data-kategori="{{ $items->pluck('kategori')->implode('|') }}" data-stock="{{ $items->pluck('sisa_stock')->implode('|') }}" data-satuan="{{ $items->pluck('satuan')->implode('|') }}" data-keterangan="{{ $first->keterangan }}"> Update </button>
         @else
             <span class="action-done"> ✓ Selesai </span>
         @endif

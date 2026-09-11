@@ -8,17 +8,18 @@
         @php
             $titles = [
                 'dashboard.index'      => 'Dashboard',
-                'inventory.index'      => 'Inventory',
+                'inventory.index'      => 'Persediaan Bahan',
                 'menu.index'           => 'Menu',
                 'karyawan.index'       => 'Karyawan',
                 'request.index'        => 'Permintaan Barang',
-                'supplier.index'       => 'Supplier',
+                'supplier.index'       => 'Persetujuan Pengajuan Bahan',
                 'transaction.index'    => 'Kasir',
                 'transaction.edit'     => 'Kasir',
                 'transaction.onhold'   => 'On Hold',
                 'pesanan.index'        => 'Pesanan',
                 'shift_karyawan.index' => 'Shift Karyawan',
                 'kehadiran.index'      => 'Kehadiran',
+                'kehadiran.rekap'      => 'Rekap Kehadiran',
                 'jurnal.index'         => 'Jurnal',
             ];
         @endphp
